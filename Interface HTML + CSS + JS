@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verificador de Frete</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f6f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+    }
+    h1 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+    input {
+      width: 80%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .resultado {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Verificador de Frete Grátis</h1>
+    <input type="number" step="0.01" id="valorCompra" placeholder="Digite o valor da compra (R$)">
+    <button onclick="verificarFrete()">Verificar</button>
+    <div class="resultado" id="mensagem"></div>
+  </div>
+
+  <script>
+    function verificarFrete() {
+      const valor = parseFloat(document.getElementById('valorCompra').value.replace(',', '.'));
+      const mensagem = valor > 150
+        ? "Você ganhou frete grátis!"
+        : "Frete não incluso.";
+      document.getElementById('mensagem').innerText = mensagem;
+    }
+  </script>
+
+</body>
+</html>
